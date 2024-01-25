@@ -11,7 +11,7 @@ const App = () => {
     fetch('https://makers-gig-backend.onrender.com/events')
       .then(response => response.json())
       .then(data => {
-        setGigs(data);
+        setGigs(data.map(gig => ({ ...gig, favourited: false })));
         setLoading(false);
       })
       .catch(error => {
@@ -19,6 +19,15 @@ const App = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleLike = (event_id) => {
+    setGigs(prevGigs => {
+      const updatedGigs = prevGigs.map(gig => 
+        gig.event_id === event_id ? { ...gig, favourited: !gig.favourited } : gig
+      );
+      return updatedGigs.sort((a, b) => (b.favourited ? 1 : -1));
+    });
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -28,10 +37,11 @@ const App = () => {
     <div className="app-container">
       <h1>Upcoming Gigs</h1>
       {gigs.map(gig => (
-        <Gig key={gig.event_id} {...gig} />
+        <Gig key={gig.event_id} {...gig} onLike={() => handleLike(gig.event_id)} />
       ))}
     </div>
   );
 };
 
 export default App;
+

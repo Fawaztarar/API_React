@@ -1,19 +1,30 @@
-/* Gig.css */
+/* Updated Gig.css */
+
+/* Base Styles */
 .gig-container {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid #e0e0e0; /* Refined border */
+    border-radius: 10px; /* Rounded corners */
     padding: 20px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
+    margin-bottom: 25px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
+  .gig-container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper hover shadow */
+    transform: translateY(-3px);
+  }
+  
   .band-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover; /* Ensures consistent aspect ratio */
   }
   
   .details-container {
@@ -21,45 +32,68 @@
   }
   
   .band-name {
-    font-size: 24px;
+    font-family: 'Times New Roman', serif; /* Serif font for titles */
+    font-size: 22px;
     color: #333;
-    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .event-description {
+    font-family: 'Arial', sans-serif; /* Sans-serif for details */
     font-size: 16px;
     color: #666;
-    margin-top: 8px;
+    margin-bottom: 10px;
   }
   
   .event-time, .event-location {
     font-size: 14px;
     color: #888;
-    margin-top: 4px;
+    margin-bottom: 10px;
   }
   
-  .heart-button {
-    font-size: 20px;
-    padding: 5px 10px;
-    margin-top: 10px;
+  .like-button {
+    background-color: #007bff;
+    color: white;
     border: none;
-    background-color: transparent;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
   }
   
-  .heart-button.favorited {
-    color: red;
+  .like-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
   }
   
-  .favorite-status {
-    margin-top: 8px;
-    font-size: 14px;
-    color: green;
+  /* Responsive Design */
+  @media (min-width: 600px) {
+    .app-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+  
+    .gig-container {
+      flex-direction: row;
+      align-items: start;
+    }
+  
+    .band-image {
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+    }
   }
   
-  .loading {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
+  @media (min-width: 900px) {
+    .band-name {
+      font-size: 24px;
+    }
+  
+    .event-description, .event-time, .event-location {
+      font-size: 16px;
+    }
   }
   
