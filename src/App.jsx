@@ -37,7 +37,9 @@ const App = () => {
     <div className="app-container">
       <h1>Upcoming Gigs</h1>
       {gigs.map(gig => (
-        <Gig key={gig.event_id} {...gig} onLike={() => handleLike(gig.event_id)} />
+        <Gig key={gig.event_id} {...gig} onLike={() => handleLike(gig.event_id)}
+        image_url = "../src/assets/gigs.jpg"
+        />
       ))}
     </div>
   );

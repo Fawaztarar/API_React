@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Gig.css';
+// import './assets/gigs.jpg';
 
 const Gig = ({ image_url, band_name, description, time, location, favourited, onLike }) => {
   return (
